@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<resource-ref>
+	      <description>mysql数据库连接池</description>
+	      <!-- 参考数据源名字,同Tomcat中配置的Resource节点中name属性值"jdbc/mysqlds"一致 -->
+	      <res-ref-name>jdbc/mysqlds</res-ref-name>
+	      <!-- 资源类型 -->
+	      <res-type>javax.sql.DataSource</res-type>
+	      <res-auth>Container</res-auth>	
+	      <res-sharing-scope>Shareable</res-sharing-scope>
+	</resource-ref>
+
+	<!-- 配置字符过滤器 -->
+	<filter>
+		<filter-name>encodeFilter</filter-name>
+		<filter-class>com.barclouds.util.EncodeFilter</filter-class>
+	</filter>
+	<!-- 配置字符过滤器的URL映射 -->
+	<filter-mapping>
+		<filter-name>encodeFilter</filter-name>
+		<url-pattern>*</url-pattern>
+	</filter-mapping>
+	
+	<!-- 设置session的有效时间 ，单位是分钟-->
+	<session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+    
+    <!-- 添加用户登录状态的过滤 -->
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>com.barclouds.util.LoginFilter</filter-class>  
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/system/*</url-pattern>
+    </filter-mapping>
+    
+    <!-- 使用一个servlet作为controller -->
+	<servlet>
+		<servlet-name>actionServlet</servlet-name>
+		<servlet-class>com.barclouds.controller.ActionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>actionServlet</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- android相关发送json的servlet -->
+	<servlet>
+	    <description>This is the description of my J2EE component</description>
+	    <display-name>This is the display name of my J2EE component</display-name>
+	    <servlet-name>BarcloudsLoginServlet</servlet-name>
+	    <servlet-class>com.barclouds.android.servlets.BarcloudsLoginServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	    <servlet-name>BarcloudsLoginServlet</servlet-name>
+	    <url-pattern>/AndroidLoginServlet</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+	    <description>This is the description of my J2EE component</description>
+	    <display-name>This is the display name of my J2EE component</display-name>
+	    <servlet-name>BarcloudsRegisterServlet</servlet-name>
+	    <servlet-class>com.barclouds.android.servlets.AndroidRegisterServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	    <servlet-name>BarcloudsRegisterServlet</servlet-name>
+	    <url-pattern>/AndroidRegisterServlet</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+	    <description>This is the description of my J2EE component</description>
+	    <display-name>This is the display name of my J2EE component</display-name>
+	    <servlet-name>BarcloudsDataServlet</servlet-name>
+	    <servlet-class>com.barclouds.android.servlets.JsonDataServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	    <servlet-name>BarcloudsDataServlet</servlet-name>
+	    <url-pattern>/JsonDataServlet</url-pattern>
+	</servlet-mapping>
+		
+		
+	<servlet>
+	    <description>This is the description of my J2EE component</description>
+	    <display-name>This is the display name of my J2EE component</display-name>
+	    <servlet-name>BarcloudsInfoIndexServlet</servlet-name>
+	    <servlet-class>com.barclouds.android.servlets.JsonInfoIndexServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	    <servlet-name>BarcloudsInfoIndexServlet</servlet-name>
+	    <url-pattern>/JsonInfoIndexServlet</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+	    <description>This is the description of my J2EE component</description>
+	    <display-name>This is the display name of my J2EE component</display-name>
+	    <servlet-name>BarcloudsInfoServlet</servlet-name>
+	    <servlet-class>com.barclouds.android.servlets.JsonInfoServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	    <servlet-name>BarcloudsInfoServlet</servlet-name>
+	    <url-pattern>/JsonInfoServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	    <description>This is the description of my J2EE component</description>
+	    <display-name>This is the display name of my J2EE component</display-name>
+	    <servlet-name>BarcloudsCollectServlet</servlet-name>
+	    <servlet-class>com.barclouds.android.servlets.JsonCollectServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	    <servlet-name>BarcloudsCollectServlet</servlet-name>
+	    <url-pattern>/JsonCollectServlet</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+	    <description>This is the description of my J2EE component</description>
+	    <display-name>This is the display name of my J2EE component</display-name>
+	    <servlet-name>BarcloudsDataDeleteServlet</servlet-name>
+	    <servlet-class>com.barclouds.android.servlets.JsonDataDeleteServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	    <servlet-name>BarcloudsDataDeleteServlet</servlet-name>
+	    <url-pattern>/JsonDataDeleteServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	    <description>This is the description of my J2EE component</description>
+	    <display-name>This is the display name of my J2EE component</display-name>
+	    <servlet-name>BarcloudsInfoDeleteServlet</servlet-name>
+	    <servlet-class>com.barclouds.android.servlets.JsonInfoDeleteServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	    <servlet-name>BarcloudsInfoDeleteServlet</servlet-name>
+	    <url-pattern>/JsonInfoDeleteServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	    <description>This is the description of my J2EE component</description>
+	    <display-name>This is the display name of my J2EE component</display-name>
+	    <servlet-name>BarcloudsUploadServlet</servlet-name>
+	    <servlet-class>com.barclouds.android.servlets.JsonUploadServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	    <servlet-name>BarcloudsUploadServlet</servlet-name>
+	    <url-pattern>/JsonUploadServlet</url-pattern>
+	</servlet-mapping>
+</web-app>

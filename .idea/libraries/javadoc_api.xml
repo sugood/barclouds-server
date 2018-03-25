@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="javadoc-api">
+    <CLASSES />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/work/Project/Barclouds/lib/spring-framework-3.2.0.RELEASE-dist.zip!/spring-framework-3.2.0.RELEASE/docs/javadoc-api" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,117 @@
+body,div,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,from,input,textarea,p{
+	margin:0px;
+	padding:0px;
+	font-size:13px
+	
+}
+ul{
+	list-style:none;
+}
+img,a img{
+	border:none;
+	
+}
+a{
+	text-decoration:none;
+}
+a:hover{
+	text-decoration:underline;
+}
+
+#header{
+	width:1024px;
+	height:90px;
+	/*background:#cccccc;*/
+	margin:0 auto;
+}
+
+#main{
+	
+}
+#bottom{
+	background:blue;
+}
+#top_logo{
+	float:left;
+	margin: 0 auto;
+	width:186;
+	padding:15px 0 0 10px;
+	
+}
+#top_login{
+	
+	float:right;
+	padding: 40px 0 0 10px;
+	/*margin:40px 0 10px 10px ;*/
+}
+#top_nav{
+	
+	height:16px;
+}
+#top_nav ul{
+	margin:0 0 0 100px;
+}
+#top_nav ul li{
+	
+	float:left;
+}
+
+#top_nav ul li a {
+	font-size: 16px;
+	line-height: 88px;
+	padding: 0 0 0 80px;
+	color: #8c8c8c;
+	display:block;
+
+}
+
+
+.bannerbox {
+    width:100%;
+    position:relative;
+    overflow:hidden;
+    height:350px;
+    background:#08A7E9; 
+    color:#FFF;
+}
+.banner {
+    width:1024px;
+    position:absolute;
+    left:50%;
+    margin-left:-512px;
+    background:#08A7E9; 
+    color:#FFF;
+}
+
+.wy-content .wy-platform-download {
+  height: 150px;
+  margin-top: 80px;
+}
+
+.wy-platform-download .wy-platform-wrap {
+  overflow: hidden;
+  zoom: 1;
+  width: 1024px;
+  margin: 80px auto 0;
+}
+
+.wy-platform-download .wy-platform-wrap .wy-platform {
+  float: left;
+  text-align: center;
+  margin-right: 167px;
+  position: relative;
+}
+
+.wy-platform-download .wy-platform-wrap .wy-platform .wy-platform-item {
+  display: block;
+  width: 80px;
+  margin: 0 auto;
+}
+
+.wy-platform-download .wy-platform-wrap .wy-platform .wy-platform-txt {
+  display: block;
+  font-size: 18px;
+  font-family: Microsoft Yahei;
+  color: #adadae;
+}
+

@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="BarClouds_web">
+    <output-path>$PROJECT_DIR$/out/artifacts/BarClouds_web</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="BarClouds/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="BarClouds" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="mysql-connector-java-5.1.42-bin" />
+          <element id="library" level="project" name="activation" />
+          <element id="library" level="project" name="commons-beanutils-1.6" />
+        </element>
+      </element>
+      <element id="dir-copy" path="$PROJECT_DIR$/WebRoot" />
+    </root>
+  </artifact>
+</component>
